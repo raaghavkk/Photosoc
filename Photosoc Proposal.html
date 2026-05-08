@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Photosoc Surrey · FILSOC Gala Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #2e2a24;
+    --paper: #f5f0e8;
+    --paper-warm: #fffdf5;
+    --gold: #c9a84c;
+    --gold-deep: #a88930;
+    --gold-light: #e8d5a3;
+    --rule: #d4c9b0;
+    --rule-soft: #e6dec9;
+    --muted: #6b6052;
+    --muted-soft: #9a8f80;
+    --shadow: 0 20px 80px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.25);
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+  @keyframes softPulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+  @keyframes filmDrift { 0% { transform: translateX(0); } 100% { transform: translateX(-12px); } }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background:
+      radial-gradient(ellipse at top, #3a2d1f 0%, #2a2118 40%, #1a140f 100%);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 32px 16px 48px;
+    color: var(--ink-soft);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .stage {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* ---------- masthead above the card ---------- */
+  .masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px 14px;
+    color: #c9a84c;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .masthead .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #c9a84c;
+    margin-right: 8px;
+    vertical-align: middle;
+    animation: softPulse 2.4s ease-in-out infinite;
+  }
+  .masthead-logo {
+    width: 22px; height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    filter: drop-shadow(0 0 6px rgba(201,168,76,0.4));
+  }
+  .masthead-row { display: flex; align-items: center; }
+
+  .stage > .card { animation: fadeUp 0.7s cubic-bezier(.2,.7,.2,1) both; }
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- main card ---------- */
+  .card {
+    background: var(--paper);
+    border-radius: 3px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold-deep) 0%, var(--gold) 25%, #f7e2a3 50%, var(--gold) 75%, var(--gold-deep) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 6s linear infinite;
+  }
+
+  /* subtle paper grain */
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(201,168,76,0.05) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(201,168,76,0.04) 0, transparent 35%);
+    mix-blend-mode: multiply;
+  }
+
+  .header {
+    padding: 36px 40px 28px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .crest {
+    position: absolute;
+    top: 24px; right: 28px;
+    width: 64px; height: 64px;
+    background: var(--ink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(201,168,76,0.4);
+    transition: transform 0.4s cubic-bezier(.2,.7,.2,1);
+  }
+  .crest:hover { transform: rotate(-6deg) scale(1.04); }
+  .crest img {
+    width: 78%; height: 78%;
+    object-fit: contain;
+  }
+  @media (max-width: 600px) {
+    .crest { width: 52px; height: 52px; top: 18px; right: 18px; }
+  }
+
+  .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    align-items: center;
+  }
+  .label .pip {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 5.5vw, 34px);
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .header h1 em {
+    color: var(--gold-deep);
+    font-style: italic;
+  }
+
+  .header .sub {
+    font-size: 13.5px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .header .sub strong {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  /* meta strip */
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 22px;
+    border-top: 1px dashed var(--rule);
+    padding-top: 16px;
+  }
+  .meta-cell {
+    text-align: left;
+    padding-right: 8px;
+  }
+  .meta-cell + .meta-cell {
+    border-left: 1px dashed var(--rule);
+    padding-left: 14px;
+  }
+  .meta-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+    color: var(--muted-soft);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .meta-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .meta-val small {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  .body {
+    padding: 32px 40px;
+  }
+
+  .section { margin-bottom: 32px; }
+  .section:last-child { margin-bottom: 0; }
+
+  .section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .section-title .num {
+    color: var(--muted-soft);
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    font-weight: 400;
+    text-wrap: pretty;
+  }
+  p + p { margin-top: 12px; }
+
+  /* ---------- portfolio link cards ---------- */
+  .portfolios {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .portfolio {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 14px;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.15s;
+  }
+  .portfolio:hover, .portfolio:focus-visible {
+    border-color: var(--gold);
+    background: var(--paper-warm);
+    transform: translateY(-1px);
+    outline: none;
+  }
+  .portfolio-glyph {
+    flex-shrink: 0;
+    width: 38px; height: 38px;
+    border-radius: 2px;
+    background: var(--ink);
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.04em;
+  }
+  .portfolio-meta { flex: 1; min-width: 0; }
+  .portfolio-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .portfolio-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted-soft);
+    text-transform: uppercase;
+    margin-top: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .portfolio-arrow {
+    font-family: 'DM Mono', monospace;
+    color: var(--gold-deep);
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* ---------- photographer DNA cards ---------- */
+  .dna-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .dna {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+  .dna-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px 12px;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .dna-avatar {
+    --av: 44px;
+    width: var(--av); height: var(--av);
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2a2118, #4a3d28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1.5px solid var(--gold-light);
+  }
+  .dna-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .dna-avatar.empty::after {
+    content: '\f030';
+    font-family: 'DM Mono', monospace;
+    color: var(--gold-light);
+    font-size: 16px;
+    content: '▢';
+  }
+  .dna-id { flex: 1; min-width: 0; }
+  .dna-handle {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dna-role {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+  .dna-igbtn {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    background: var(--paper);
+    transition: all 0.15s;
+  }
+  .dna-igbtn:hover { background: var(--ink); color: var(--gold); border-color: var(--ink); }
+
+  /* filmstrip */
+  .filmstrip {
+    background: #15110b;
+    padding: 10px 0;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filmstrip::-webkit-scrollbar { display: none; }
+  .filmstrip::before, .filmstrip::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 6px;
+    background-image: radial-gradient(circle, #15110b 38%, var(--paper) 39%, var(--paper) 60%, #15110b 61%);
+    background-size: 14px 6px;
+    background-repeat: repeat-x;
+    background-position: 6px 50%;
+  }
+  .filmstrip::before { top: 0; }
+  .filmstrip::after { bottom: 0; }
+
+  .filmstrip-track {
+    display: flex;
+    gap: 4px;
+    padding: 14px 12px;
+    width: max-content;
+  }
+  .frame {
+    --fw: 110px;
+    width: var(--fw);
+    height: calc(var(--fw) * 1.25);
+    background: #2a2118;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(.2,.7,.2,1), filter 0.4s ease;
+  }
+  .dna:hover .frame img { filter: saturate(1.08); }
+  .frame:hover img { transform: scale(1.06); }
+  .frame.empty {
+    background:
+      repeating-linear-gradient(135deg, #1a140d 0 8px, #221a10 8px 16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .frame.empty::before {
+    content: attr(data-slot);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--gold-light);
+    opacity: 0.55;
+    text-align: center;
+    padding: 0 6px;
+    line-height: 1.4;
+    z-index: 1;
+  }
+  .frame::after {
+    content: attr(data-ix);
+    position: absolute;
+    bottom: 4px; left: 5px;
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .dna-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    color: var(--gold-deep);
+    margin-top: 4px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .dna-badge .star {
+    color: var(--gold);
+    font-size: 10px;
+    line-height: 1;
+    transform: translateY(-1px);
+  }
+
+  /* DNA signature row */
+  .dna-sig {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 12px 16px 14px;
+    align-items: start;
+  }
+  .sig-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+  .sig-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    color: var(--muted-soft);
+    text-transform: uppercase;
+  }
+  .sig-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .sig-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 3px 7px;
+    border-radius: 2px;
+    text-transform: lowercase;
+    white-space: nowrap;
+  }
+  .sig-palette {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+  .swatch {
+    width: 14px; height: 22px;
+    border-radius: 1px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+  }
+
+  /* DNA stats footer */
+  .dna-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px dashed var(--rule);
+    background: var(--paper);
+  }
+  .stat {
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .stat + .stat { border-left: 1px dashed var(--rule); }
+  .stat-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .stat-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    color: var(--muted-soft);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ---------- packages ---------- */
+  .packages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 4px;
+  }
+  .pkg {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 16px 18px 18px;
+    background: white;
+    position: relative;
+  }
+  .pkg.highlight {
+    border-color: var(--gold);
+    background: var(--paper-warm);
+    box-shadow: 0 4px 16px rgba(201,168,76,0.18);
+  }
+  .pkg.highlight::after {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: -1px;
+    right: 14px;
+    background: var(--gold);
+    color: white;
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    padding: 3px 8px;
+    border-radius: 0 0 3px 3px;
+  }
+  .pkg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    gap: 12px;
+  }
+  .pkg-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .pkg-price {
+    font-family: 'DM Mono', monospace;
+    font-size: 13.5px;
+    color: var(--gold-deep);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .pkg-price s {
+    color: var(--muted-soft);
+    font-weight: 400;
+    margin-right: 4px;
+  }
+  .pkg-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .pkg-handles {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    color: var(--muted-soft);
+    margin-top: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  /* questions */
+  .questions {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 16px 18px;
+  }
+  .questions ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .questions ul li {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    padding-left: 18px;
+    position: relative;
+  }
+  .questions ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold-deep);
+    font-size: 12px;
+    top: 1px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .closer {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    margin-top: 8px;
+  }
+
+  /* footer */
+  .footer {
+    padding: 22px 40px 30px;
+    border-top: 1px solid var(--rule);
+    background:
+      linear-gradient(180deg, transparent 0%, rgba(201,168,76,0.04) 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .copy-btn {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 14px 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+  .copy-btn:hover { background: #333; }
+  .copy-btn.copied { background: #3a6b3a; }
+  .cta-line {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink);
+    text-align: center;
+    line-height: 1.35;
+  }
+  .signoff {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted-soft);
+    text-align: center;
+  }
+
+  #message-text { display: none; }
+
+
+  /* ---------- mobile ---------- */
+  @media (max-width: 600px) {
+    body { padding: 16px 10px 32px; }
+    .masthead { font-size: 9px; letter-spacing: 0.18em; }
+    .masthead .right { display: none; }
+    .header { padding: 26px 22px 22px; }
+    .body { padding: 24px 22px; }
+    .footer { padding: 18px 22px 24px; }
+    .meta { grid-template-columns: 1fr 1fr; gap: 0 10px; }
+    .meta-cell:nth-child(3) {
+      grid-column: 1 / -1;
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px dashed var(--rule);
+      margin-top: 10px;
+      padding-top: 10px;
+    }
+    .header h1 { font-size: 26px; }
+    .frame { --fw: 96px; }
+    .pkg { padding: 14px 14px 16px; }
+    .pkg-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .portfolio { padding: 10px 12px; }
+  }
+
+  @media (max-width: 380px) {
+    .dna-sig {
+      grid-template-columns: 1fr;
+    }
+    .sig-palette { justify-content: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+
+  <div class="masthead">
+    <span class="masthead-row"><img class="masthead-logo" src="images/photosoc-logo.png" alt="">Photosoc Surrey</span>
+    <span class="right">Proposal · Ref PS-G/26-05</span>
+  </div>
+
+  <div class="card">
+
+    <div class="header">
+      <a class="crest" href="https://instagram.com/photosocsurrey" target="_blank" rel="noopener" aria-label="Photosoc Surrey on Instagram">
+        <img src="images/photosoc-logo.png" alt="Photosoc Surrey">
+      </a>
+      <div class="label">
+        <span>Photography Proposal</span>
+        <span class="pip"></span>
+        <span>FILSOC Gala</span>
+        <span class="pip"></span>
+        <span>23 May 2026</span>
+      </div>
+      <h1>Event Coverage<br><em>for the FILSOC Gala</em></h1>
+      <div class="sub">Prepared by <strong>@photosocsurrey</strong><br>For Gideon &amp; the FILSOC committee.</div>
+
+      <div class="meta">
+        <div class="meta-cell">
+          <div class="meta-key">Event</div>
+          <div class="meta-val">Gala<br><small>Sit-down + party</small></div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-key">Window</div>
+          <div class="meta-val">7 PM – 1 AM<br><small>6 hours</small></div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-key">Team</div>
+          <div class="meta-val">2 shooters<br><small>recommended</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="body">
+
+      <!-- 01 — Context -->
+      <div class="section">
+        <div class="section-title"><span>Context &amp; Past Work</span><span class="num">01</span></div>
+        <p>Hey Gideon — thanks for reaching out. Now that I've had a chance to talk it through with the committee, here's a proper proposal.</p>
+        <p>For context: we've covered <strong>two HockeySoc balls</strong> at £70/hr (a 3-hour awards night and a 2-hour session), plus a <strong>HockeySoc Christmas dinner</strong> and <strong>ParaSoc's ball</strong>. Our standard coverage includes wide shots, venue setup, skin retouching, and a mix of flash + natural-light work. We've also previously shot <strong>FILSOC's Y2K Night</strong> via @raaghavphotography, so we already have a feel for your events.</p>
+      </div>
+
+      <!-- 02 — Portfolios -->
+      <div class="section">
+        <div class="section-title"><span>Portfolios — Recent Coverage</span><span class="num">02</span></div>
+        <div class="portfolios">
+          <a class="portfolio" href="https://photos.app.goo.gl/YNgSAedC4kZAbTwj7" target="_blank" rel="noopener">
+            <div class="portfolio-glyph">01</div>
+            <div class="portfolio-meta">
+              <div class="portfolio-name">HockeySoc · Ball</div>
+              <div class="portfolio-sub">photos.app.goo.gl / YNgSAedC4kZAbTwj7</div>
+            </div>
+            <div class="portfolio-arrow">↗</div>
+          </a>
+          <a class="portfolio" href="https://photos.app.goo.gl/khDBr1jqXgrq3g1K6" target="_blank" rel="noopener">
+            <div class="portfolio-glyph">02</div>
+            <div class="portfolio-meta">
+              <div class="portfolio-name">HockeySoc · Christmas Dinner</div>
+              <div class="portfolio-sub">photos.app.goo.gl / khDBr1jqXgrq3g1K6</div>
+            </div>
+            <div class="portfolio-arrow">↗</div>
+          </a>
+          <a class="portfolio" href="https://photos.app.goo.gl/cRYvifQorYEF52qaA" target="_blank" rel="noopener">
+            <div class="portfolio-glyph">03</div>
+            <div class="portfolio-meta">
+              <div class="portfolio-name">ParaSoc · Ball</div>
+              <div class="portfolio-sub">photos.app.goo.gl / cRYvifQorYEF52qaA</div>
+            </div>
+            <div class="portfolio-arrow">↗</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 03 — Photographer DNA -->
+      <div class="section">
+        <div class="section-title"><span>The Team — Photographer DNA</span><span class="num">03</span></div>
+        <p style="margin-bottom: 14px; font-size: 13.5px; color: var(--muted);">Each shooter brings a different signature. Tap a handle to open their Instagram.</p>
+
+        <div class="dna-stack">
+
+          <!-- Raaghav -->
+          <div class="dna" data-photog="raaghav">
+            <div class="dna-head">
+              <div class="dna-avatar empty">
+                <img alt="" data-target="raaghav/avatar">
+              </div>
+              <div class="dna-id">
+                <div class="dna-handle">@raaghavphotography</div>
+                <div class="dna-role">Lead · President, Photosoc</div>
+                <div class="dna-badge"><span class="star">★</span> Sony Award Winning · also offers 1-min reel</div>
+              </div>
+              <a class="dna-igbtn" href="https://instagram.com/raaghavphotography" target="_blank" rel="noopener" aria-label="Open Instagram">↗</a>
+            </div>
+
+            <div class="filmstrip">
+              <div class="filmstrip-track">
+                <div class="frame empty" data-ix="01" data-slot="hero"><img alt="" data-target="raaghav/01"></div>
+                <div class="frame empty" data-ix="02" data-slot="portrait"><img alt="" data-target="raaghav/02"></div>
+                <div class="frame empty" data-ix="03" data-slot="dance floor"><img alt="" data-target="raaghav/03"></div>
+                <div class="frame empty" data-ix="04" data-slot="detail"><img alt="" data-target="raaghav/04"></div>
+                <div class="frame empty" data-ix="05" data-slot="group"><img alt="" data-target="raaghav/05"></div>
+              </div>
+            </div>
+
+            <div class="dna-sig">
+              <div class="sig-block">
+                <div class="sig-key">Signature</div>
+                <div class="sig-tags">
+                  <span class="sig-tag">cinematic flash</span>
+                  <span class="sig-tag">ambient candid</span>
+                  <span class="sig-tag">portraits</span>
+                  <span class="sig-tag">35mm</span>
+                  <span class="sig-tag">85mm</span>
+                </div>
+              </div>
+              <div class="sig-block">
+                <div class="sig-key">Palette</div>
+                <div class="sig-palette" aria-hidden="true">
+                  <span class="swatch" style="background:#0d1f26"></span>
+                  <span class="swatch" style="background:#2a6a78"></span>
+                  <span class="swatch" style="background:#4ba0a8"></span>
+                  <span class="swatch" style="background:#e07a3a"></span>
+                  <span class="swatch" style="background:#f5b878"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="dna-stats">
+              <div class="stat"><div class="stat-val">50+</div><div class="stat-key">Events</div></div>
+              <div class="stat"><div class="stat-val">4+ yrs</div><div class="stat-key">Experience</div></div>
+              <div class="stat"><div class="stat-val">A7C II</div><div class="stat-key">Body</div></div>
+            </div>
+          </div>
+
+          <!-- Akis -->
+          <div class="dna" data-photog="akis">
+            <div class="dna-head">
+              <div class="dna-avatar empty">
+                <img alt="" data-target="akis/avatar">
+              </div>
+              <div class="dna-id">
+                <div class="dna-handle">@akisvision</div>
+                <div class="dna-role">Second shooter · HockeySoc balls</div>
+              </div>
+              <a class="dna-igbtn" href="https://instagram.com/akisvision" target="_blank" rel="noopener" aria-label="Open Instagram">↗</a>
+            </div>
+
+            <div class="filmstrip">
+              <div class="filmstrip-track">
+                <div class="frame empty" data-ix="01" data-slot="wide"><img alt="" data-target="akis/01"></div>
+                <div class="frame empty" data-ix="02" data-slot="dance floor"><img alt="" data-target="akis/02"></div>
+                <div class="frame empty" data-ix="03" data-slot="venue"><img alt="" data-target="akis/03"></div>
+                <div class="frame empty" data-ix="04" data-slot="crowd"><img alt="" data-target="akis/04"></div>
+                <div class="frame empty" data-ix="05" data-slot="detail"><img alt="" data-target="akis/05"></div>
+              </div>
+            </div>
+
+            <div class="dna-sig">
+              <div class="sig-block">
+                <div class="sig-key">Signature</div>
+                <div class="sig-tags">
+                  <span class="sig-tag">flash specialty</span>
+                  <span class="sig-tag">adaptive</span>
+                  <span class="sig-tag">wide shots</span>
+                  <span class="sig-tag">24-70mm</span>
+                </div>
+              </div>
+              <div class="sig-block">
+                <div class="sig-key">Palette</div>
+                <div class="sig-palette" aria-hidden="true">
+                  <span class="swatch" style="background:#0d0d12"></span>
+                  <span class="swatch" style="background:#2c2c46"></span>
+                  <span class="swatch" style="background:#7a3a82"></span>
+                  <span class="swatch" style="background:#d4546a"></span>
+                  <span class="swatch" style="background:#f0d4c0"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="dna-stats">
+              <div class="stat"><div class="stat-val">2</div><div class="stat-key">Balls covered</div></div>
+              <div class="stat"><div class="stat-val">Flash</div><div class="stat-key">Specialty</div></div>
+              <div class="stat"><div class="stat-val">A7 III</div><div class="stat-key">Body</div></div>
+            </div>
+          </div>
+
+          <!-- Filipus -->
+          <div class="dna" data-photog="filipus">
+            <div class="dna-head">
+              <div class="dna-avatar empty">
+                <img alt="" data-target="filipus/avatar">
+              </div>
+              <div class="dna-id">
+                <div class="dna-handle">@filipus_wicaksono</div>
+                <div class="dna-role">Medium format · Premium package only</div>
+              </div>
+              <a class="dna-igbtn" href="https://instagram.com/filipus_wicaksono" target="_blank" rel="noopener" aria-label="Open Instagram">↗</a>
+            </div>
+
+            <div class="filmstrip">
+              <div class="filmstrip-track">
+                <div class="frame empty" data-ix="01" data-slot="editorial"><img alt="" data-target="filipus/01"></div>
+                <div class="frame empty" data-ix="02" data-slot="detail"><img alt="" data-target="filipus/02"></div>
+                <div class="frame empty" data-ix="03" data-slot="portrait"><img alt="" data-target="filipus/03"></div>
+                <div class="frame empty" data-ix="04" data-slot="venue"><img alt="" data-target="filipus/04"></div>
+                <div class="frame empty" data-ix="05" data-slot="texture"><img alt="" data-target="filipus/05"></div>
+              </div>
+            </div>
+
+            <div class="dna-sig">
+              <div class="sig-block">
+                <div class="sig-key">Signature</div>
+                <div class="sig-tags">
+                  <span class="sig-tag">cinematic</span>
+                  <span class="sig-tag">medium format</span>
+                  <span class="sig-tag">grounded tones</span>
+                  <span class="sig-tag">100MP</span>
+                </div>
+              </div>
+              <div class="sig-block">
+                <div class="sig-key">Palette</div>
+                <div class="sig-palette" aria-hidden="true">
+                  <span class="swatch" style="background:#1a1611"></span>
+                  <span class="swatch" style="background:#3e3326"></span>
+                  <span class="swatch" style="background:#7a6a52"></span>
+                  <span class="swatch" style="background:#bba684"></span>
+                  <span class="swatch" style="background:#e8d8b8"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="dna-stats">
+              <div class="stat"><div class="stat-val">100MP</div><div class="stat-key">Resolution</div></div>
+              <div class="stat"><div class="stat-val">Medium</div><div class="stat-key">Format</div></div>
+              <div class="stat"><div class="stat-val">GFX 100s</div><div class="stat-key">Body</div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 04 — Packages -->
+      <div class="section">
+        <div class="section-title"><span>Packages — 7 PM to 1 AM</span><span class="num">04</span></div>
+        <div class="packages">
+
+          <div class="pkg">
+            <div class="pkg-header">
+              <div class="pkg-name">Budget Option</div>
+              <div class="pkg-price">£210</div>
+            </div>
+            <div class="pkg-desc">9 PM – 12 AM (3 hrs) · single photographer · light editing, basic flash, no skin retouching. Best for partial coverage of peak hours.</div>
+            <div class="pkg-handles">→ @raaghavphotography</div>
+          </div>
+
+          <div class="pkg">
+            <div class="pkg-header">
+              <div class="pkg-name">Solo — Full Evening</div>
+              <div class="pkg-price">£350</div>
+            </div>
+            <div class="pkg-desc">7 PM – 1 AM · one experienced photographer. Light-to-no skin retouching. Note: solo coverage means brief downtime during lens / battery changes — some moments may be missed.</div>
+            <div class="pkg-handles">→ @raaghavphotography</div>
+          </div>
+
+          <div class="pkg highlight">
+            <div class="pkg-header">
+              <div class="pkg-name">Duo — Full Evening</div>
+              <div class="pkg-price"><s>£420</s>£400</div>
+            </div>
+            <div class="pkg-desc">7 PM – 1 AM · two photographers (pro + apprentice). Zero downtime — when one is changing lenses or batteries, the other is shooting. Full skin retouching, event highlights, wide + detail shots. This is how we've covered every HockeySoc event.</div>
+            <div class="pkg-handles">→ @raaghavphotography + @akisvision</div>
+          </div>
+
+          <div class="pkg">
+            <div class="pkg-header">
+              <div class="pkg-name">Premium — Full Evening + 1 minute reel</div>
+              <div class="pkg-price">£450</div>
+            </div>
+            <div class="pkg-desc">7 PM – 1 AM · two photographers, complete coverage, photo booth during guest entry (space permitting), a 1-minute edited video reel, and all unedited clips in a shared Google Drive. Filipus shoots medium format on the GFX 100s for editorial-quality stills alongside the reel.</div>
+            <div class="pkg-handles">→ @raaghavphotography + @filipus_wicaksono</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 05 — Questions -->
+      <div class="section">
+        <div class="section-title"><span>A Few Things That Would Help Us</span><span class="num">05</span></div>
+        <div class="questions">
+          <ul>
+            <li>Will there be clear pathways for photographers to move freely around the venue throughout the night?</li>
+            <li>Is this a sit-down dinner, a standing / mingling party, or a mix of both?</li>
+            <li>Could you share a rough event breakdown with key moments — speeches, awards, performances, group photos — so we know what to prioritise?</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="closer">Happy to jump on a quick call if it's easier to talk through logistics. Looking forward to covering the Gala.</p>
+
+    </div>
+
+    <div class="footer">
+      <div class="cta-line">Need more or less hours, or a custom quote?</div>
+      <a class="copy-btn" href="https://instagram.com/photosocsurrey" target="_blank" rel="noopener">
+        <span>DM us · @photosocsurrey</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="masthead" style="padding-top: 14px; padding-bottom: 0; opacity: 0.5;">
+    <span>End of proposal</span>
+    <span class="right">v4 · @photosocsurrey</span>
+  </div>
+</div>
+
+<script>
+  // ===== Photo loading =====
+  // Each <img data-target="<photog>/<slot>"> tries to load images/photographers/<photog>/<slot>.jpg
+  // (then .png, then .webp). When found, the frame leaves its empty state and shows the photo.
+  // To go live: drop matching files into images/photographers/<photog>/<slot>.<ext> in the repo.
+  (function () {
+    const exts = ['jpg', 'jpeg', 'png', 'webp'];
+    document.querySelectorAll('img[data-target]').forEach(img => {
+      const target = img.dataset.target;
+      let i = 0;
+      const tryNext = () => {
+        if (i >= exts.length) { img.style.display = 'none'; return; }
+        const url = `images/photographers/${target}.${exts[i++]}`;
+        const t = new Image();
+        t.onload = () => {
+          img.src = url;
+          img.style.display = 'block';
+          const host = img.closest('.frame, .dna-avatar');
+          if (host) host.classList.remove('empty');
+        };
+        t.onerror = tryNext;
+        t.src = url;
+      };
+      img.style.display = 'none';
+      tryNext();
+    });
+  })();
+
+  // ===== Scroll reveal =====
+  (function () {
+    const els = document.querySelectorAll('.section, .pkg, .dna, .portfolio');
+    els.forEach(el => el.classList.add('reveal'));
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('in'), i * 40);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(el => io.observe(el));
+  })();
+</script>
+
+</body>
+</html>
