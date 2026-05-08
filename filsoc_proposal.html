@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FILSOC Photography Proposal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f5f0e8;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --rule: #d4c9b0;
+    --muted: #6b6052;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #2a2118;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .card {
+    background: var(--paper);
+    max-width: 680px;
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), #e8c97a, var(--gold));
+  }
+
+  .header {
+    padding: 36px 44px 28px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .header .sub {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .body {
+    padding: 32px 44px;
+  }
+
+  .section {
+    margin-bottom: 28px;
+  }
+
+  .section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #2e2a24;
+    font-weight: 400;
+  }
+
+  p + p { margin-top: 10px; }
+
+  .packages {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 4px;
+  }
+
+  .pkg {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 16px 20px;
+    background: white;
+    position: relative;
+  }
+
+  .pkg.highlight {
+    border-color: var(--gold);
+    background: #fffdf5;
+  }
+
+  .pkg.highlight::after {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: -1px;
+    right: 16px;
+    background: var(--gold);
+    color: white;
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    padding: 3px 8px;
+    border-radius: 0 0 3px 3px;
+  }
+
+  .pkg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+
+  .pkg-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .pkg-price {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .pkg-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .pkg-handles {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #9a8f80;
+    margin-top: 5px;
+  }
+
+  .questions {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 18px 20px;
+  }
+
+  .questions ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .questions ul li {
+    font-size: 13.5px;
+    color: #2e2a24;
+    line-height: 1.5;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .questions ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 12px;
+    top: 1px;
+  }
+
+  .footer {
+    padding: 20px 44px 32px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .copy-btn {
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 12px 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .copy-btn:hover { background: #333; }
+  .copy-btn.copied { background: #3a6b3a; }
+
+  #message-text { display: none; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="header">
+    <div class="label">Photography Proposal · FILSOC Gala · 23 May</div>
+    <h1>Event Coverage — Photosoc Surrey</h1>
+    <div class="sub">From @raaghavphotography · President, Photosoc Surrey</div>
+  </div>
+
+  <div class="body">
+
+    <div class="section">
+      <div class="section-title">Context & Past Work</div>
+      <p>Hey Gideon! Thanks for reaching out — happy to follow up properly now that I've had a chance to speak with the committee.</p>
+      <p>For context, we've covered 2 HockeySoc ball events at £70/hr (including a 3-hour awards night and a 2-hour session), and we've also done coverage for ParaSoc. Our standard coverage includes wide shots, venue setup shots, skin retouching, and a mix of flash and natural-light photography.</p>
+      <p>We've also previously covered a FILSOC Y2K Night through @raaghavphotography — so we already have a feel for your events.</p>
+      <p>Here are our portfolios from past events: <strong>[HockeySoc portfolio link] · [ParaSoc portfolio link]</strong></p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Packages — 7 PM to 1 AM (6 hrs)</div>
+      <div class="packages">
+
+        <div class="pkg">
+          <div class="pkg-header">
+            <div class="pkg-name">Budget Option</div>
+            <div class="pkg-price">£210</div>
+          </div>
+          <div class="pkg-desc">9 PM–12 AM (3 hrs) · Single photographer · Light editing, basic flash, no skin retouching. Good for partial coverage of peak hours.</div>
+          <div class="pkg-handles">@raaghavphotography</div>
+        </div>
+
+        <div class="pkg">
+          <div class="pkg-header">
+            <div class="pkg-name">Solo — Full Evening</div>
+            <div class="pkg-price">£350</div>
+          </div>
+          <div class="pkg-desc">7 PM–1 AM · One experienced photographer. Light-to-no skin retouching. Note: solo coverage means brief downtime during lens/battery changes — some moments may be missed.</div>
+          <div class="pkg-handles">@raaghavphotography</div>
+        </div>
+
+        <div class="pkg highlight">
+          <div class="pkg-header">
+            <div class="pkg-name">Duo — Full Evening</div>
+            <div class="pkg-price">£420 → £400</div>
+          </div>
+          <div class="pkg-desc">7 PM–1 AM · Two photographers (pro + apprentice). Zero downtime — when one is changing lenses or batteries, the other is shooting. Full skin retouching, event highlights, wide + detail shots. This is how we've covered all HockeySoc events.</div>
+          <div class="pkg-handles">@raaghavphotography + @akisvision</div>
+        </div>
+
+        <div class="pkg">
+          <div class="pkg-header">
+            <div class="pkg-name">Premium — Full Evening + Video</div>
+            <div class="pkg-price">£450</div>
+          </div>
+          <div class="pkg-desc">7 PM–1 AM · Two photographers, complete event coverage, a photo booth during guest entry (space permitting), a 1-minute edited video reel by @raaghavphotography, plus all unedited clips in a shared Google Drive.</div>
+          <div class="pkg-handles">@raaghavphotography + @filipus_wicaksono</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">A Few Things That Would Help Us</div>
+      <div class="questions">
+        <ul>
+          <li>Will there be clear pathways for photographers to move around the venue freely throughout the event?</li>
+          <li>Is this a sit-down dinner or a standing/mingling party — or a mix of both?</li>
+          <li>Could you share a rough event breakdown with key moments to capture — e.g. speeches, award announcements, performances, group photos?</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="font-size:13.5px; color:#2e2a24; line-height:1.75;">Happy to jump on a quick call if it's easier to talk through logistics. Looking forward to covering the Gala!</p>
+
+  </div>
+
+  <div class="footer">
+    <button class="copy-btn" onclick="copyMessage(this)" id="copy-btn">
+      <span>Copy Message Text</span>
+    </button>
+  </div>
+</div>
+
+<textarea id="message-text">Hey Gideon! Thanks for reaching out — happy to follow up properly now that I've had a chance to speak with the committee.
+
+For context, we've covered 2 HockeySoc ball events at £70/hr (including a 3-hour awards night and a 2-hour session), and we've also done coverage for ParaSoc. Our standard coverage includes wide shots, venue setup shots, skin retouching, and a mix of flash and natural-light photography. We've also previously covered a FILSOC Y2K Night through @raaghavphotography — so we already have a feel for your events.
+
+Here are our portfolios from those events:
+→ HockeySoc: [link]
+→ ParaSoc: [link]
+
+---
+
+We'd love to cover your Gala (7 PM–1 AM). Here are our options:
+
+💡 Budget Option — £210
+9 PM–12 AM only. One photographer (@raaghavphotography). Light editing, basic flash, no skin retouching.
+
+📷 Solo Full Evening — £350
+7 PM–1 AM. One experienced photographer. Light-to-no skin retouching. Note: there will be brief downtime during lens/battery changes.
+
+✅ Duo Full Evening — £400 (usually £420)
+7 PM–1 AM. @raaghavphotography + @akisvision (who covered both HockeySoc events with us). Zero downtime — when one photographer is changing gear, the other is shooting. Full skin retouching, wide shots, detail shots, event highlights. This is the setup we recommend and how we cover all major events.
+
+🎬 Premium Full Evening + Video — £450
+Everything in the Duo package, plus a photo booth during guest entry (space permitting), a 1-minute edited video reel, and all unedited clips shared via Google Drive. Covered by @raaghavphotography + @filipus_wicaksono.
+
+---
+
+A few things that would help us prepare:
+→ Will there be clear pathways for photographers to move freely around the venue?
+→ Is this a sit-down dinner, standing party, or a mix?
+→ Could you share a rough event breakdown — key moments like speeches, awards, performances, group photos — so we know what to prioritise?
+
+Happy to jump on a quick call if that's easier. Looking forward to it!
+
+— Raaghav (@raaghavphotography), President @ Photosoc Surrey</textarea>
+
+<script>
+function copyMessage(btn) {
+  const text = document.getElementById('message-text').value;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    btn.querySelector('span').textContent = 'Copied!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.querySelector('span').textContent = 'Copy Message Text';
+    }, 2500);
+  });
+}
+</script>
+
+</body>
+</html>
